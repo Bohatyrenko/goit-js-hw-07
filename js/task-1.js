@@ -1,19 +1,11 @@
+/**Получаю ссылку на <ul> */
 const categoriesListEl = document.getElementById("categories");
 
+/**Получаю ссылку на li.item */
 const allCategoriesEl = categoriesListEl.querySelectorAll(".item");
-const categoryEl = [...allCategoriesEl];
-console.log(categoryEl);
+console.log(`В списке ${allCategoriesEl.length} категории`);
 
-const titleCategoriesEl = categoriesListEl.getElementsByTagName("h2");
-const titleCategoryEl = [...titleCategoriesEl];
-const nameCategoryEl = titleCategoryEl.map((item) => {
-  return `Категория: ${item.textContent}`;
-});
-console.log(nameCategoryEl);
-
-const quantityEl = categoriesListEl.getElementsByTagName("ul");
-const quantyEl = [...quantityEl];
-const getQuantityEl = quantyEl.map((item) => {
-  return item.length;
-});
-console.log(`Количество элементов: ${getQuantityEl.length}`);
+const arrCategoryEl = [...allCategoriesEl].map((item) => {
+  console.log(`Категория: ${item.firstElementChild.textContent}`);
+  console.log(`Количество элементов: ${item.querySelectorAll('li').length}`);
+})
