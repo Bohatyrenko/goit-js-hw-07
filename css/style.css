@@ -1,3 +1,9 @@
+.image-list {
+  display: flex;
+  list-style-type: none;
+}
+
 .image-item {
-  
+  width: 100px;
+  margin: 10px;
 }

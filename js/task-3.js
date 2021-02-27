@@ -1,37 +1,29 @@
 const images = [
   {
     url:
-      'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    alt: 'White and Black Long Fur Cat',
+      "https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    alt: "White and Black Long Fur Cat",
   },
   {
     url:
-      'https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    alt: 'Orange and White Koi Fish Near Yellow Koi Fish',
+      "https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    alt: "Orange and White Koi Fish Near Yellow Koi Fish",
   },
   {
     url:
-      'https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    alt: 'Group of Horses Running',
+      "https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    alt: "Group of Horses Running",
   },
 ];
 
-const imagesListEl = document.querySelector('#gallery');
-console.log(imagesListEl);
+const imagesListEl = document.querySelector("#gallery");
 
-const itemImageEl = images.map(image => {
-    const itemImageListEl = document.createElement('img');
-    const imageItemEl = document.createElement('li');
-    itemImageListEl.src = image.url;
-    itemImageListEl.alt = image.alt;
-    imageItemEl.append(itemImageListEl);
-    itemImageListEl.classList.add('image-item');
-    itemImageListEl.width = 500;
- 
-    return imageItemEl;
-});
+const itemImageEl = ({ url, alt }) => {
+  return `<li><img class = 'image-item' src='${url}' alt="${alt}"></li>`;
+};
 
-imagesListEl.append(...itemImageEl);
-const imageStyle = document.querySelector('.image-item');
+const listImageEl = images.map(itemImageEl).join("");
+const getImagesEl = imagesListEl.insertAdjacentHTML("afterbegin", listImageEl);
 
-// console.log(imagesListEl);
+const liImageEl = imagesListEl.querySelectorAll("li");
+imagesListEl.classList.add("image-list");
