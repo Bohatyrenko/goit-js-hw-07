@@ -7,3 +7,15 @@
   width: 100px;
   margin: 10px;
 }
+
+.validation-input {
+  border: 3px solid #bdbdbd;
+}
+
+.valid {
+  border-color: #4caf50;
+}
+
+.invalid {
+  border-color: #f44336;
+}
